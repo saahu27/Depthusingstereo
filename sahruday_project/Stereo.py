@@ -456,6 +456,48 @@ height,width,_ = image_Right_rectified_resized.shape
 # plt.imshow(disparity,'gray')
 # plt.show()
 
+## CORRESPONDENCE 
+
+
+    #Taking the rectified images as input to calculate the disparity
+#     img_rect_left, img_rect_right = img1_rectified_reshaped, img2_rectified_reshaped
+    
+#     img_rect_left = img_rect_left.astype(int)
+#     img_rect_right = img_rect_right.astype(int)
+
+#     height, width = img_rect_left.shape
+#     disparity_map = np.zeros((height, width))
+
+#     x_new = width - (2 * window)
+    
+#     ### ---- Block Matching --- ###
+#     for y in tqdm(range(window, height-window)):
+        
+#         block_img_rect_left = []
+#         block_img_rect_right = []
+#         for x in range(window, width-window):
+#             block_left = img_rect_left[y:y + window, x:x + window]
+#             block_img_rect_left.append(block_left.flatten())
+
+#             block_right = img_rect_right[y:y + window, x:x + window]
+#             block_img_rect_right.append(block_right.flatten())
+
+#         block_img_rect_left = np.array(block_img_rect_left)
+#         block_img_rect_right = np.array(block_img_rect_right)
+        
+#         block_img_rect_left = np.repeat(block_img_rect_left[:, :, np.newaxis], x_new, axis=2)
+#         block_img_rect_right = np.repeat(block_img_rect_right[:, :, np.newaxis], x_new, axis=2)
+        
+
+#         block_img_rect_right = block_img_rect_right.T
+        
+#         ###----Sum of Absolute Differences (SAD)----###
+#         absolute_difference = np.abs(block_img_rect_left - block_img_rect_right)
+#         SAD = np.sum(absolute_difference, axis = 1)
+#         index = np.argmin(SAD, axis = 0)
+#         disparity = np.abs(index - np.linspace(0, x_new, x_new, dtype=int)).reshape(1, x_new)
+#         disparity_map[y, 0:x_new] = disparity 
+
 
 
 Disparity_img = np.zeros((height,width))
